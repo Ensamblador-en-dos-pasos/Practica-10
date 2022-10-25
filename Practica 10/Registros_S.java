@@ -7,8 +7,8 @@ public class Registros_S {
     BcTabSim bt = new BcTabSim();
     Conversor conv = new Conversor();
     Idx coms = new Idx();
-    String data, cm, ck, cc, addr, chk, bin;
-    int suma, cont, contS1=0, aux, aux1, tamaño, tam, pos;
+    String data, cm, ck, cc, addr, chk, bin, sumaad;
+    int suma, cont, contS1=0, aux, aux1, tamaño, tam, tam1, pos;
     String datauni = "", dataaux = "";
 
     /**
@@ -99,20 +99,34 @@ public class Registros_S {
 
             aux = (data.length() / 3 + 3);
             aux1 = (data.length() / 3);
-            if (contS1 > 1) {   
+            if (contS1 > 1) {  
+                tam1 = tam;//Toma el valor anterior para hacer la suma 
                 tamaño = tam;//Retoma el valor del S1
                 tamaño = tamaño + aux1;//Le suma las instrucciones para el siguiente S1
                 dir_inic = conv.dectohex(tam);//Toma el valor del addr que se calculó antes
                 dir_inic = conv.ceros(dir_inic);//LO pasa a una variable para imprimirlo
-
                 tam = tamaño;//Toma el valor para el siguiente S1
             } else if (contS1 == 1) {
                 tamaño = conv.hextodec(dir_inic);//Toma el valor del addr del primer S1
+                tam1 = tamaño;//Toma el valor anterior para hacer la suma 
                 tam = tamaño + aux1;//Guarda el tamaño del siguiente S1
             }
 
-            suma = aux;
-            suma = suma + tamaño;
+            suma = aux;//Suma el valor equivalente a cc
+            
+            sumaad = conv.dectohex(tam1);//Convierte el valor a hex para hacer la suma
+            sumaad = conv.ceros(sumaad);//Llena con 0 para tomar el valor de 8bits
+            String sumaaddr[] = sumaad.split("");
+            sumaad = "";
+            for (int i = 0; i < sumaaddr.length; i = i + 2) {//Separa los valores para hacer la suma
+                sumaad = sumaad + sumaaddr[i] + sumaaddr[i + 1] + " ";
+            }
+
+            String sumaaddr1[] = sumaad.split(" ");
+            for (int i = 0; i < sumaaddr1.length; i++) {//Realiza la suma de los valores del addr en par
+                aux1 = conv.hextodec(sumaaddr1[i]);
+                suma = suma + aux1;
+            }
             cc = conv.dectohex(aux);
             cc = conv.ceros9bits(cc);
 
