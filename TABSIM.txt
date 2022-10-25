@@ -1,0 +1,14 @@
+EQU(Etiqueta-absoluta)	 PRI	 0001	
+EQU(Etiqueta-absoluta)	 SEG	 0002	
+EQU(Etiqueta-absoluta)	 TER	 0003	
+EQU(Etiqueta-absoluta)	 CUA	 0004	
+ContLoc(Etiqueta-relativa)	 ET	 00FF	
+EQU(Etiqueta-absoluta)	 OTRA	 0000	
+EQU(Etiqueta-absoluta)	 QUI	 0005	
+EQU(Etiqueta-absoluta)	 SEX	 0006	
+ContLoc(Etiqueta-relativa)	 SEP	 0110
+EQU(Etiqueta-absoluta)	 OCT	 0008	
+EQU(Etiqueta-absoluta)	 NOV	 0009	
+EQU(Etiqueta-absoluta)	 DEC	 000A	
+EQU(Etiqueta-absoluta)	 ONC	 000D	
+EQU(Etiqueta-absoluta)	 TRE	 000D	

@@ -1,0 +1,26 @@
+Pri equ 1
+seg equ 2
+Ter equ 3
+Cua equ 4
+ ORG 255
+Et DS.B 5
+Otra EQU 0
+    SWI
+ DS.W 5
+Qui equ 5
+    SWI
+Sex equ 6
+Sep SWI
+Oct equ 8
+    LDAA 3
+    LDAA Sep
+ Ds.B 3
+    LDAA 3
+Nov equ 9
+    SWI
+    Dc.b 2
+Dec equ 10
+Onc equ 13
+Tre equ 13
+ Ds.b 1
+    END
